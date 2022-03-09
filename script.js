@@ -1,13 +1,10 @@
 const input = document.querySelector("input");
-
 const ul = document.querySelector("ul");
-
 const remaining = document.querySelector("#remaining");
-
 const KEY = "K2n4-Eq35-Nd10-Xp69-z78b-HELLO-FOLLOW-EESAZAHED-ON-GITHUB";
-
-const todoArray = JSON.parse(localStorage.getItem(KEY)) || [];
-
+const todoArray = localStorage.getItem(KEY)
+  ? JSON.parse(localStorage.getItem(KEY))
+  : [];
 const saveTodos = () => localStorage.setItem(KEY, JSON.stringify(todoArray));
 
 const iterate = () => {
