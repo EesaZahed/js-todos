@@ -1,0 +1,121 @@
+html {
+  background: linear-gradient(to right, blue, turquoise, lime);
+}
+
+h1,
+ul,
+input,
+button {
+  font: 1rem "Noteworthy", "Comic Sans MS", sans-serif;
+}
+
+body {
+  height: 100vh;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  border-radius: 20px 20px 0px 0px;
+  text-align: center;
+  background: #000000;
+  color: white;
+  margin: 0;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+#remaining {
+  font: 1.5rem "Avenir", Arial;
+  float: right;
+  font-weight: lighter;
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  background: white;
+  color: black;
+  border-radius: 15px;
+}
+
+ul {
+  height: 50vh;
+  list-style: none;
+  margin: 0%;
+  padding: 0%;
+  overflow-y: auto;
+  background: white;
+}
+
+li:hover span {
+  width: 40px;
+  opacity: 1;
+}
+
+li {
+  color: #383838;
+  padding: 0%;
+  border-bottom: 1px solid grey;
+}
+
+li span {
+  background-color: red;
+  height: 40px;
+  padding: 1%;
+  margin-right: 20px;
+  text-align: center;
+  color: white;
+  width: 0px;
+  display: inline-block;
+  transition: 0.2s linear;
+  opacity: 0;
+}
+
+input {
+  position: sticky;
+  margin: 0%;
+  font-size: 18px;
+  width: 100%;
+  padding: 13px 13px 13px 20px;
+  border-left: 3px grey;
+}
+
+input:focus {
+  background-color: white;
+}
+
+#container {
+  width: 400px;
+  height: 450px;
+  overflow: hidden;
+  border-radius: 0px 0px 20px 20px;
+}
+
+.active {
+  background: white;
+  transition: 0.75s;
+}
+
+.completed {
+  background: #e1ffea;
+  color: gray;
+  text-decoration: line-through;
+  transition: 0.75s;
+}
+
+@media (max-width: 600px) {
+  ul,
+  #container {
+    height: 100vh;
+    width: 100vw;
+  }
+  h1,
+  #container {
+    border-radius: 0px;
+  }
+}
