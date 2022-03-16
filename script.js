@@ -16,7 +16,6 @@ const iterate = () => {
     newTodo.className = todo.type;
     newTodo.innerHTML = `<span onclick="deleteTodo(${todo.id})"><i class="fa fa-trash"></i>
  </span> ${todo.text}`;
-
     newTodo.addEventListener("click", function () {
       if (this.className === "active") {
         this.className = "completed";
@@ -27,7 +26,6 @@ const iterate = () => {
       }
       saveTodos();
     });
-
     ul.append(newTodo);
   });
   saveTodos();
