@@ -13,11 +13,24 @@ const iterate = () => {
   todoArray.forEach((todo) => {
     todo.id = count++;
     const newTodo = document.createElement("li");
+    newTodo.className = todo.type;
     newTodo.innerHTML = `<span onclick="deleteTodo(${todo.id})"><i class="fa fa-trash"></i>
  </span> ${todo.text}`;
-    newTodo.className = todo.type;
+
+    newTodo.addEventListener("click", function () {
+      if (this.className === "active") {
+        this.className = "completed";
+        todoArray[todo.id].type = "completed";
+      } else {
+        this.className = "active";
+        todoArray[todo.id].type = "active";
+      }
+      saveTodos();
+    });
+
     ul.append(newTodo);
   });
+  saveTodos();
 };
 
 const deleteTodo = (id) => {
@@ -27,23 +40,7 @@ const deleteTodo = (id) => {
 
 const update = () => {
   iterate();
-
-  const li = document.querySelectorAll("li");
-
-  for (let i = 0; i < todoArray.length; i++) {
-    li[i].addEventListener("click", function () {
-      if (li[i].className === "active") {
-        this.className = "completed";
-        todoArray[i].type = "completed";
-      } else {
-        this.className = "active";
-        todoArray[i].type = "active";
-      }
-      saveTodos();
-    });
-  }
   remaining.innerHTML = todoArray.length;
-  saveTodos();
 };
 
 input.addEventListener("keydown", (event) => {
