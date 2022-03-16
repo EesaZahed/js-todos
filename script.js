@@ -26,7 +26,7 @@ const iterate = () => {
       }
       saveTodos();
     });
-    ul.append(newTodo);
+    ul.prepend(newTodo);
   });
   saveTodos();
 };
