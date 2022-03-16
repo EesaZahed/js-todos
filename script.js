@@ -13,9 +13,10 @@ const iterate = () => {
   todoArray.forEach((todo) => {
     todo.id = count++;
     const newTodo = document.createElement("li");
-    newTodo.innerHTML = `<span onclick="deleteTodo(${todo.id})"> <i>X</i> </span> ${todo.text}`;
+    newTodo.innerHTML = `<span onclick="deleteTodo(${todo.id})"><i class="fa fa-trash"></i>
+ </span> ${todo.text}`;
     newTodo.className = todo.type;
-    ul.prepend(newTodo);
+    ul.append(newTodo);
   });
 };
 
@@ -31,7 +32,7 @@ const update = () => {
 
   for (let i = 0; i < todoArray.length; i++) {
     li[i].addEventListener("click", function () {
-      if (todoArray[i].type === "active") {
+      if (li[i].className === "active") {
         this.className = "completed";
         todoArray[i].type = "completed";
       } else {
